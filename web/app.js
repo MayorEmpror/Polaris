@@ -22,6 +22,7 @@ const state = {
   health: null,
   targets: [],
   criteria: [],
+  lunarCriteria: [], // Moon predictor surfaces (body: "Moon"), rendered as layers
   sources: null,
   analogs: null,
   targetId: null,
@@ -31,7 +32,8 @@ const state = {
   field: null,         // Float32Array score field
   sorted: null,        // sorted finite scores
   layer: "score",
-  layerField: null,    // {values, sorted, lo, hi, unit, label}
+  layerField: null,    // {values, sorted, lo, hi, unit, label, body}
+  body: "earth",       // which body the current layer is drawn on
   view: "globe",
   selected: null,      // selected result row
   pick: null,          // clicked location
@@ -71,7 +73,10 @@ function debounce(fn, ms) {
   return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
 }
 
-function spec(key) { return state.criteria.find((c) => c.key === key); }
+function spec(key) {
+  return state.criteria.find((c) => c.key === key)
+      || state.lunarCriteria.find((c) => c.key === key);
+}
 function target() {
   if (state.mode === "custom") return customTarget();
   return state.targets.find((t) => t.id === state.targetId);
@@ -484,13 +489,19 @@ function paintLayer() {
     const lo = half === null ? f.lo : look.center - half;
     const hi = half === null ? f.hi : look.center + half;
     const mid = look.center === undefined ? "" : `<span style="left:${(rampPosition(look.center, lo, hi, look.center) * 100).toFixed(0)}%">${esc(fmtValue(look.center, f.unit))}</span>`;
+    const lunar = f.body === "Moon";
     $("legend").innerHTML = `
       ${legendTitle(f.label)}
       <div class="ramp" style="background:${cssGradient(look.ramp)}"></div>
       <div class="scale abs num"><span style="left:0">${esc(fmtValue(lo, f.unit))}</span>${mid}<span style="left:100%">${esc(fmtValue(hi, f.unit))}</span></div>
-      <div class="note">Raw Earth data behind the score; colours stop at the range covering 99% of land.
+      <div class="note">${lunar
+        ? "Lunar surface data from the PDS Geosciences Node; colours stop at the range covering 99% of valid cells."
+        : "Raw Earth data behind the score; colours stop at the range covering 99% of land."}
         Source:
-        <a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.dataset)}</a></div>`;
+        <a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.dataset)}</a></div>
+      ${lunar
+        ? `<div class="credit-line">Moon: <a href="${esc(state.sources.basemaps.moon.url)}" target="_blank" rel="noopener">${esc(state.sources.basemaps.moon.credit)}</a></div>`
+        : ""}`;
   }
   globe.setOverlay(image);
   flat.setOverlay(image);
@@ -583,9 +594,29 @@ async function setLayer(key) {
     state.layerField = {
       values: decode(payload), lo: s.earth_min, hi: s.earth_max,
       unit: s.unit, label: s.label, dataset: s.dataset_id, url: s.source_url,
+      body: s.body || "Earth",
     };
+    // Lunar surfaces are drawn on the Moon; every other layer stays on Earth.
+    await setBody(s.body === "Moon" ? "moon" : "earth");
+  } else {
+    // The analog score is always an Earth surface, so restore the Earth base.
+    await setBody("earth");
   }
   paintLayer();
+}
+
+/* Swap the basemap between Earth and the Moon.  Both textures are already in
+   web/assets, so this is a local swap with no network fetch. */
+async function setBody(body) {
+  if (state.body === body) return;
+  state.body = body;
+  if (body === "moon") {
+    await globe.setEarth("assets/moon.jpg", "assets/moon_sm.jpg");
+    await flat.setBase("assets/moon.jpg");
+  } else {
+    await globe.setEarth("assets/earth_hd.jpg", "assets/earth.jpg");
+    await flat.setBase("assets/earth_hd.jpg");
+  }
 }
 
 /* ----------------------------------------------------------------- targets */
@@ -1743,7 +1774,14 @@ async function init() {
       api("/api/health"), api("/api/targets"), api("/api/criteria"), api("/api/sources"), api("/api/analogs"),
     ]);
     if (!health.ok) throw new Error(health.detail || "backend not ready");
-    Object.assign(state, { health, targets: targets.targets, criteria: criteria.criteria, sources, analogs });
+    Object.assign(state, {
+      health,
+      targets: targets.targets,
+      criteria: criteria.criteria,
+      lunarCriteria: criteria.lunar || [],
+      sources,
+      analogs,
+    });
     for (const w of criteria.weights) state.defaults[w.key] = w.weight;
     const hash = readHash();
     const wanted = TARGET_ALIASES[hash.target] || hash.target;
@@ -1770,6 +1808,12 @@ async function init() {
     const layer = $("layer");
     layer.appendChild(new Option("Analog score", "score"));
     for (const c of state.criteria) layer.appendChild(new Option(c.label, c.key));
+    if (state.lunarCriteria.length) {
+      const group = document.createElement("optgroup");
+      group.label = "Moon surfaces";
+      for (const c of state.lunarCriteria) group.appendChild(new Option(c.label, c.key));
+      layer.appendChild(group);
+    }
 
     renderTargets();
     renderTargetDetail();
@@ -1784,7 +1828,7 @@ async function init() {
     loadingStep(3, `Scoring ${fmtInt(health.candidate_cells)} land cells…`);
     await runScore();
     if (hash.view === "map") setView("map");
-    if (hash.layer && state.criteria.some((c) => c.key === hash.layer)) {
+    if (hash.layer && [...state.criteria, ...state.lunarCriteria].some((c) => c.key === hash.layer)) {
       layer.value = hash.layer;
       await setLayer(hash.layer);
     }

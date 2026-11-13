@@ -1,0 +1,583 @@
+INFO:     Started server process [89378]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:53896 - "GET /api/targets HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53896 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53896 - "GET /assets/moon.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53896 - "GET /finder.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53896 - "GET /vendor/fonts/anton-regular.ttf HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53897 - "GET /vendor/fonts/roboto-variable.ttf HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53900 - "GET /app.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53899 - "GET /shared-controls.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53896 - "GET /brand.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53901 - "GET /controls.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53898 - "GET /styles.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53899 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53898 - "GET /godseye.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53901 - "GET /flatmap.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53899 - "GET /globe.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53896 - "GET /colors.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53900 - "GET /starfield.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53897 - "GET /ui.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53900 - "GET /format.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53896 - "GET /site-navigation.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53899 - "GET /bounded-cache.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53897 - "GET /dom-lifecycle.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53898 - "GET /navigation.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53901 - "GET /vendor/fonts/inter-variable.ttf HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53900 - "GET /reveal.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53901 - "GET /terrain-data.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53898 - "GET /climate.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53897 - "GET /vendor/three/OrbitControls.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53899 - "GET /vendor/three/three.module.min.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53896 - "GET /finder-controls.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53900 - "GET /space.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53901 - "GET /disclosure-motion.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53896 - "GET /range-control.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53896 - "GET /vendor/three/three.core.min.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53896 - "GET /vendor/fonts/ibm-plex-mono-latin-500-normal.woff2 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53899 - "GET /api/sources HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53896 - "GET /api/targets HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53897 - "GET /api/analogs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53898 - "GET /assets/moon_sm.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53900 - "GET /api/criteria HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53901 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53896 - "GET /assets/mars_sm.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53896 - "GET /assets/moon.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53901 - "GET /assets/earth_hd.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53901 - "GET /assets/earth_hd.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53901 - "GET /vendor/fonts/ibm-plex-mono-latin-400-normal.woff2 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53901 - "POST /api/score HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53901 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53901 - "GET /api/datachecks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53901 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53902 - "GET /api/criteria HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53901 - "POST /api/robustness HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53901 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53904 - "GET /api/predictor?key=vegetation HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53904 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+/Users/hashirali/Documents/terra-nova/.venv/lib/python3.12/site-packages/zarr/core/group.py:3413: ZarrUserWarning: Object at .DS_Store is not recognized as a component of a Zarr hierarchy.
+  warnings.warn(
+INFO:     127.0.0.1:53904 - "GET /api/predictor?key=lunar_roughness HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53904 - "GET /assets/moon.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53904 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53904 - "GET /api/predictor?key=lunar_temperature HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53904 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53904 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53914 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53914 - "GET /vendor/fonts/anton-regular.ttf HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53915 - "GET /vendor/lenis/lenis.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53916 - "GET /styles.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53918 - "GET /vendor/fonts/roboto-variable.ttf HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53917 - "GET /shared-controls.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53919 - "GET /vendor/fonts/panchang-600.woff2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53915 - "GET /controls.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53919 - "GET /experience.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53917 - "GET /welcome.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53914 - "GET /brand.svg HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53916 - "GET /icons.svg HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53916 - "GET /ui.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53917 - "GET /reveal.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53918 - "GET /site-navigation.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53914 - "GET /finder-controls.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53915 - "GET /dom-lifecycle.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53919 - "GET /vendor/lenis/lenis.mjs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53917 - "GET /vendor/three/three.module.min.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53914 - "GET /space.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53916 - "GET /vendor/three/OrbitControls.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53918 - "GET /starfield.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53915 - "GET /format.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53917 - "GET /assets/moon.jpg HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53918 - "GET /vendor/fonts/inter-variable.ttf HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53915 - "GET /assets/mars.jpg HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53916 - "GET /disclosure-motion.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53914 - "GET /range-control.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53919 - "GET /vendor/three/three.core.min.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53917 - "GET /assets/earth.jpg HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53914 - "GET /assets/mars_sm.jpg HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53918 - "GET /api/analogs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53915 - "GET /api/targets HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53919 - "GET /assets/moon_sm.jpg HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53917 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53919 - "GET /brand.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53904 - "GET /api/predictor?key=lunar_slope HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53904 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53904 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53919 - "GET /finder.html HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53914 - "GET /vendor/fonts/roboto-variable.ttf HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53917 - "GET /styles.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53916 - "GET /app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53918 - "GET /controls.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53919 - "GET /vendor/fonts/anton-regular.ttf HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53915 - "GET /shared-controls.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53918 - "GET /brand.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53919 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53918 - "GET /reveal.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53919 - "GET /ui.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53916 - "GET /site-navigation.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53917 - "GET /dom-lifecycle.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53915 - "GET /finder-controls.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53914 - "GET /globe.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53918 - "GET /godseye.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53917 - "GET /navigation.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53919 - "GET /flatmap.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53916 - "GET /colors.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53915 - "GET /bounded-cache.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53914 - "GET /starfield.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53918 - "GET /format.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53917 - "GET /disclosure-motion.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53915 - "GET /range-control.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53914 - "GET /vendor/three/OrbitControls.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53916 - "GET /terrain-data.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53917 - "GET /climate.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53919 - "GET /space.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53918 - "GET /vendor/three/three.module.min.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53919 - "GET /vendor/fonts/inter-variable.ttf HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53919 - "GET /vendor/three/three.core.min.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53919 - "GET /vendor/fonts/ibm-plex-mono-latin-500-normal.woff2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53915 - "GET /assets/moon_sm.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53917 - "GET /api/targets HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53918 - "GET /api/sources HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53914 - "GET /api/analogs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53916 - "GET /api/criteria HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53919 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53916 - "GET /assets/mars_sm.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53916 - "GET /assets/moon.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53916 - "GET /assets/earth_hd.jpg HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53919 - "GET /vendor/fonts/ibm-plex-mono-latin-400-normal.woff2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53916 - "GET /assets/earth_hd.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53916 - "POST /api/score HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53916 - "GET /api/datachecks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53904 - "GET /api/predictor?key=annual_temperature_range HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53904 - "GET /assets/earth_hd.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53904 - "GET /assets/earth_hd.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53916 - "POST /api/robustness HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53904 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53916 - "GET /api/predictor?key=lunar_slope HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53916 - "GET /assets/moon.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53927 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53927 - "GET /api/predictor?key=precipitation HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53927 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53927 - "GET /api/predictor?key=vegetation HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53927 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53927 - "GET /api/predictor?key=annual_temperature_range HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53927 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53927 - "GET /api/predictor?key=lst_diurnal_range HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53927 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53927 - "GET /api/predictor?key=slope HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53927 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53927 - "GET /api/predictor?key=roughness HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53927 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53927 - "GET /api/predictor?key=elevation HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53927 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53927 - "GET /api/predictor?key=mean_annual_temperature HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53927 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53927 - "GET /api/predictor?key=lunar_elevation HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53927 - "GET /assets/moon.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53927 - "GET /assets/moon.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53927 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53929 - "GET / HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53929 - "GET /vendor/fonts/anton-regular.ttf HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53930 - "GET /vendor/lenis/lenis.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53931 - "GET /styles.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53934 - "GET /vendor/fonts/panchang-600.woff2 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53932 - "GET /shared-controls.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53933 - "GET /vendor/fonts/roboto-variable.ttf HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53929 - "GET /controls.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53930 - "GET /welcome.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53931 - "GET /experience.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53933 - "GET /brand.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53931 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53931 - "GET /vendor/lenis/lenis.mjs HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53931 - "GET /ui.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53932 - "GET /dom-lifecycle.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53933 - "GET /site-navigation.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53930 - "GET /reveal.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53929 - "GET /finder-controls.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53934 - "GET /vendor/three/three.module.min.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53932 - "GET /starfield.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53930 - "GET /format.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53931 - "GET /vendor/three/OrbitControls.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53933 - "GET /space.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53929 - "GET /disclosure-motion.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53929 - "GET /range-control.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53929 - "GET /vendor/three/three.core.min.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53929 - "GET /vendor/fonts/inter-variable.ttf HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53929 - "GET /assets/moon.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53933 - "GET /assets/mars.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53933 - "GET /assets/earth.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53933 - "GET /assets/moon_sm.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53929 - "GET /assets/mars_sm.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53933 - "GET /api/targets HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53931 - "GET /api/analogs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53929 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53927 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53929 - "GET /finder.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53931 - "GET /vendor/fonts/roboto-variable.ttf HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53934 - "GET /app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53933 - "GET /styles.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53929 - "GET /vendor/fonts/anton-regular.ttf HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53930 - "GET /shared-controls.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53932 - "GET /controls.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53933 - "GET /brand.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53932 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53934 - "GET /ui.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53929 - "GET /reveal.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53933 - "GET /finder-controls.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53932 - "GET /site-navigation.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53930 - "GET /dom-lifecycle.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53930 - "GET /vendor/fonts/inter-variable.ttf HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53932 - "GET /godseye.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53930 - "GET /globe.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53929 - "GET /colors.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53931 - "GET /navigation.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53933 - "GET /flatmap.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53932 - "GET /format.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53934 - "GET /starfield.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53929 - "GET /disclosure-motion.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53931 - "GET /range-control.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53930 - "GET /bounded-cache.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53931 - "GET /vendor/three/OrbitControls.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53930 - "GET /vendor/three/three.module.min.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53929 - "GET /climate.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53934 - "GET /terrain-data.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53932 - "GET /space.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53932 - "GET /vendor/fonts/ibm-plex-mono-latin-500-normal.woff2 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53934 - "GET /vendor/three/three.core.min.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53932 - "GET /assets/mars_sm.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53934 - "GET /assets/moon_sm.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53932 - "GET /api/targets HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53930 - "GET /api/sources HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53931 - "GET /api/analogs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53929 - "GET /api/criteria HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53934 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53934 - "GET /assets/moon.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53929 - "GET /assets/earth_hd.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53929 - "GET /assets/earth_hd.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53929 - "GET /vendor/fonts/ibm-plex-mono-latin-400-normal.woff2 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53929 - "POST /api/score HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53929 - "GET /api/datachecks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53929 - "POST /api/robustness HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53927 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53935 - "POST /api/score HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53935 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53935 - "POST /api/robustness HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53935 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53935 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53927 - "POST /api/score HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53927 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53927 - "POST /api/robustness HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53927 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53927 - "GET /api/predictor?key=lunar_slope HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53927 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53936 - "GET /api/predictor?key=lunar_roughness HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53936 - "GET /assets/moon.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53927 - "GET /api/predictor?key=lunar_roughness HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53927 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53927 - "GET /api/predictor?key=lunar_temperature HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53927 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53927 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53927 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53937 - "POST /api/score HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53937 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53937 - "POST /api/robustness HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53937 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53937 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53927 - "POST /api/score HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53927 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53927 - "POST /api/robustness HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53927 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53927 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53938 - "GET /assets/mars.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53937 - "POST /api/score HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53937 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53938 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53927 - "POST /api/score HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53927 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53939 - "GET /assets/earth_hd.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53939 - "GET /assets/earth_hd.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53937 - "POST /api/robustness HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53937 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53927 - "POST /api/robustness HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53927 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53941 - "GET /api/predictor?key=vegetation HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53941 - "GET /assets/earth_hd.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53941 - "GET /assets/earth_hd.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53941 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53941 - "GET /api/predictor?key=lunar_elevation HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53941 - "GET /assets/moon.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53941 - "GET /assets/moon.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53941 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53941 - "GET /api/thumb?lat=20.25&lon=0.25 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53941 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53945 - "GET /api/predictor?key=lunar_slope HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53945 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53945 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53946 - "POST /api/score HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53946 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53946 - "POST /api/robustness HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53946 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53946 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53945 - "POST /api/score HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53945 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53945 - "POST /api/robustness HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53945 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53945 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53946 - "POST /api/score HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53946 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53946 - "POST /api/robustness HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53946 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53946 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53946 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53945 - "POST /api/score HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53945 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53945 - "POST /api/robustness HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53945 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53945 - "GET /index.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53945 - "GET /vendor/fonts/anton-regular.ttf HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53946 - "GET /styles.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53945 - "GET /vendor/lenis/lenis.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53948 - "GET /vendor/fonts/roboto-variable.ttf HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53949 - "GET /vendor/fonts/panchang-600.woff2 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53950 - "GET /controls.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53947 - "GET /shared-controls.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53946 - "GET /welcome.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53950 - "GET /experience.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53950 - "GET /brand.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53946 - "GET /site-navigation.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53946 - "GET /ui.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53950 - "GET /dom-lifecycle.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53949 - "GET /vendor/three/OrbitControls.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53948 - "GET /finder-controls.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53947 - "GET /reveal.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53945 - "GET /vendor/three/three.module.min.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53946 - "GET /starfield.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53950 - "GET /space.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53948 - "GET /vendor/lenis/lenis.mjs HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53947 - "GET /disclosure-motion.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53949 - "GET /format.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53946 - "GET /range-control.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53948 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53949 - "GET /assets/earth.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53946 - "GET /assets/moon.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53947 - "GET /assets/mars.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53948 - "GET /vendor/fonts/inter-variable.ttf HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53948 - "GET /vendor/three/three.core.min.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53948 - "GET /assets/earth.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53947 - "GET /api/targets HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53946 - "GET /api/analogs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53950 - "GET /assets/moon_sm.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53949 - "GET /assets/mars_sm.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53948 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53948 - "GET /targets.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53948 - "GET /vendor/fonts/anton-regular.ttf HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53947 - "GET /styles.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53948 - "GET /shared-controls.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53949 - "GET /vendor/fonts/roboto-variable.ttf HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53946 - "GET /vendor/lenis/lenis.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53945 - "GET /controls.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53950 - "GET /vendor/fonts/panchang-600.woff2 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53947 - "GET /targets.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53947 - "GET /experience.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53947 - "GET /brand.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53949 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53945 - "GET /site-navigation.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53949 - "GET /starfield.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53947 - "GET /ui.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53950 - "GET /format.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53948 - "GET /reveal.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53946 - "GET /navigation.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53950 - "GET /vendor/lenis/lenis.mjs HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53948 - "GET /disclosure-motion.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53945 - "GET /vendor/fonts/inter-variable.ttf HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53949 - "GET /finder-controls.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53947 - "GET /dom-lifecycle.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53947 - "GET /range-control.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53947 - "GET /api/targets HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53949 - "GET /assets/mars.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53947 - "GET /assets/moon.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53947 - "GET /vendor/fonts/ibm-plex-mono-latin-400-normal.woff2 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53947 - "GET /finder.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53947 - "GET /vendor/fonts/anton-regular.ttf HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53949 - "GET /styles.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53950 - "GET /controls.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53946 - "GET /brand.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53947 - "GET /app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53945 - "GET /vendor/fonts/roboto-variable.ttf HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53948 - "GET /shared-controls.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53946 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53945 - "GET /ui.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53947 - "GET /site-navigation.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53948 - "GET /finder-controls.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53950 - "GET /reveal.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53949 - "GET /globe.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53946 - "GET /dom-lifecycle.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53948 - "GET /vendor/fonts/inter-variable.ttf HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53947 - "GET /starfield.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53945 - "GET /colors.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53950 - "GET /godseye.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53949 - "GET /flatmap.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53946 - "GET /navigation.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53948 - "GET /format.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53947 - "GET /bounded-cache.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53950 - "GET /range-control.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53945 - "GET /disclosure-motion.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53948 - "GET /space.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53946 - "GET /vendor/three/OrbitControls.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53949 - "GET /vendor/three/three.module.min.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53950 - "GET /climate.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53947 - "GET /terrain-data.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53947 - "GET /vendor/three/three.core.min.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53950 - "GET /vendor/fonts/ibm-plex-mono-latin-500-normal.woff2 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53945 - "GET /assets/moon_sm.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53947 - "GET /api/targets HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53946 - "GET /api/sources HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53948 - "GET /api/analogs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53949 - "GET /api/criteria HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53950 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53945 - "GET /assets/mars_sm.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53945 - "GET /assets/moon.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53950 - "GET /assets/earth_hd.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53950 - "GET /vendor/fonts/ibm-plex-mono-latin-400-normal.woff2 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53950 - "GET /assets/earth_hd.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53950 - "POST /api/score HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53950 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53945 - "GET /api/datachecks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53945 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53945 - "POST /api/robustness HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53945 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53945 - "GET /api/thumb?lat=29.75&lon=-6.25 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53945 - "GET /api/predictor?key=precipitation HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53945 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53945 - "GET /api/predictor?key=lunar_temperature HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53945 - "GET /assets/moon.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53945 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53945 - "GET /api/predictor?key=lunar_roughness HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53945 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53945 - "GET /api/predictor?key=lunar_slope HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53945 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53945 - "GET /api/predictor?key=lunar_slope HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53945 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53945 - "GET /api/predictor?key=lunar_elevation HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53945 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53945 - "GET /api/predictor?key=mean_annual_temperature HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53945 - "GET /assets/earth_hd.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53945 - "GET /assets/earth_hd.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53945 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53951 - "GET /api/cell?lat=75.3833&lon=-89.6667 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53953 - "GET /api/cell?lat=-77.4667&lon=162.5167 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53952 - "GET /api/cell?lat=79.75&lon=-91 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53954 - "GET /api/cell?lat=-24.5&lon=-69.25 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53955 - "GET /api/cell?lat=38.4065&lon=-110.7919 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53956 - "GET /api/cell?lat=35.0281&lon=-111.0233 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53951 - "GET /api/cell?lat=43.4617&lon=-113.5627 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53952 - "GET /api/cell?lat=19.4211&lon=-155.2868 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53953 - "GET /api/cell?lat=65.033&lon=-16.783 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53954 - "GET /api/cell?lat=46.6&lon=-81.1833 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53955 - "GET /api/cell?lat=48.8833&lon=10.5667 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53956 - "GET /api/cell?lat=37.21&lon=-6.938 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53956 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53956 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53957 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53957 - "GET /api/predictor?key=lunar_slope HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53957 - "GET /assets/moon.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53957 - "GET /assets/moon.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53957 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53957 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53959 - "GET /api/predictor?key=lunar_roughness HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53959 - "GET /assets/moon.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53959 - "GET /assets/moon.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53964 - "GET /finder.html HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53964 - "GET /vendor/fonts/anton-regular.ttf HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53969 - "GET /app.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53964 - "GET /brand.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53968 - "GET /controls.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53965 - "GET /vendor/fonts/roboto-variable.ttf HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53966 - "GET /styles.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53967 - "GET /shared-controls.css HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53965 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53965 - "GET /globe.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53968 - "GET /starfield.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53967 - "GET /godseye.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53969 - "GET /format.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53965 - "GET /vendor/fonts/inter-variable.ttf HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53966 - "GET /flatmap.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53964 - "GET /colors.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53968 - "GET /bounded-cache.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53967 - "GET /ui.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53966 - "GET /reveal.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53969 - "GET /navigation.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53965 - "GET /site-navigation.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53968 - "GET /dom-lifecycle.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53964 - "GET /finder-controls.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53967 - "GET /vendor/three/three.module.min.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53968 - "GET /terrain-data.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53969 - "GET /vendor/three/OrbitControls.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53966 - "GET /space.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53965 - "GET /climate.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53964 - "GET /disclosure-motion.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53967 - "GET /range-control.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53967 - "GET /vendor/three/three.core.min.js HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53967 - "GET /vendor/fonts/ibm-plex-mono-latin-500-normal.woff2 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53967 - "GET /assets/mars_sm.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53964 - "GET /assets/moon_sm.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53969 - "GET /api/analogs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53967 - "GET /api/targets HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53966 - "GET /api/sources HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53965 - "GET /api/criteria HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53964 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53965 - "GET /assets/earth_hd.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53964 - "GET /assets/moon.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53964 - "GET /vendor/fonts/ibm-plex-mono-latin-400-normal.woff2 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53964 - "GET /assets/earth_hd.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53965 - "GET /brand.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53964 - "POST /api/score HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53964 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53965 - "GET /api/datachecks HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53965 - "GET /api/predictor?key=lunar_slope HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53964 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53964 - "GET /assets/moon.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53964 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53964 - "POST /api/robustness HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53964 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53964 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53964 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53970 - "GET /api/predictor?key=precipitation HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53970 - "GET /assets/earth_hd.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53970 - "GET /assets/earth_hd.jpg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53970 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53970 - "GET /api/predictor?key=elevation HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53970 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53970 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53970 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53970 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53970 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53970 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53972 - "POST /api/explain?lat=18.6773&lon=80.9817 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53972 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53970 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53998 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53999 - "POST /api/explain?lat=0.7683&lon=11.4760 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53999 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53998 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53972 - "GET /api/thumb?lat=18.75&lon=80.75 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53999 - "GET /api/thumb?lat=0.75&lon=11.25 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53970 - "GET /api/peek.jpg?lat=18.75&lon=80.75 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53970 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53999 - "POST /api/explain?lat=3.9091&lon=-61.2503 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53999 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53999 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53970 - "GET /api/thumb?lat=3.75&lon=-61.25 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53998 - "GET /api/peek.jpg?lat=0.75&lon=11.25 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53999 - "GET /api/peek.jpg?lat=3.75&lon=-61.25 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54074 - "POST /api/score HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54078 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:54079 - "POST /api/explain?lat=34.4279&lon=74.0395 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54079 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:54078 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:54079 - "GET /api/thumb?lat=34.25&lon=74.25 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54079 - "GET /api/predictor?key=slope HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54079 - "GET /icons.svg HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:54080 - "GET /api/peek.jpg?lat=34.25&lon=74.25 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54080 - "GET /icons.svg HTTP/1.1" 304 Not Modified

@@ -51,6 +51,7 @@ from src.compute.similarity import (
 )
 
 STACK_PATH = REPO_ROOT / "cache" / "predictors.zarr"
+LUNAR_STACK_PATH = REPO_ROOT / "cache" / "lunar_predictors.zarr"
 NORM_PATH = REPO_ROOT / "data" / "normalization.json"
 WEB_PATH = REPO_ROOT / "web"
 LST_SOURCES = {0: None, 1: "MODIS LST", 2: "NASA POWER TS_RANGE fit"}
@@ -175,6 +176,7 @@ class _State:
         self.targets: dict[str, dict[str, Any]] | None = None
         self.catalog: dict[str, Any] | None = None
         self.gazetteer: Gazetteer | None = None
+        self.lunar_stack: dict[str, np.ndarray] | None = None
 
     def load(self) -> None:
         if self.stack is not None:
@@ -211,6 +213,22 @@ class _State:
         self.load()
         assert self.stack is not None
         return self.stack
+
+    @property
+    def lunar(self) -> dict[str, np.ndarray]:
+        """Lunar predictor arrays (360x720), or an empty dict when the lunar
+        stack has not been built.  Never raises: a missing lunar stack only
+        removes the Moon layers, it does not break the Earth scoring."""
+        if self.lunar_stack is None:
+            if not LUNAR_STACK_PATH.exists():
+                self.lunar_stack = {}
+            else:
+                root = zarr.open_group(str(LUNAR_STACK_PATH), mode="r")
+                self.lunar_stack = {
+                    key: np.asarray(root[key][:], dtype=np.float64)
+                    for key in root.array_keys()
+                }
+        return self.lunar_stack
 
 
 STATE = _State()
@@ -511,8 +529,34 @@ def health() -> dict[str, Any]:
 
 @app.get("/api/criteria")
 def criteria() -> dict[str, Any]:
-    """Normalisation ranges, Earth envelope, units and the default weight shares."""
+    """Normalisation ranges, envelopes, units and the default weight shares.
+
+    Earth criteria are scored by /api/score.  Lunar criteria carry
+    ``body: "Moon"`` and describe the lunar predictor surfaces; they are
+    rendered as layers but are not part of the Earth scoring profile."""
     ranges = _ranges()
+    raw = json.loads(NORM_PATH.read_text(encoding="utf-8"))["criteria"]
+    lunar_keys = [k for k, v in raw.items() if str(v.get("body", "")).lower() == "moon"]
+
+    def lunar_entry(key: str) -> dict[str, Any]:
+        entry = raw[key]
+        return {
+            "key": key,
+            "label": str(entry.get("label", key)),
+            "unit": str(entry.get("unit", "")),
+            "description": str(entry.get("description", "")),
+            "min": float(entry["min"]),
+            "max": float(entry["max"]),
+            "earth_min": float(entry.get("earth_min", -math.inf)),
+            "earth_max": float(entry.get("earth_max", math.inf)),
+            "body": "Moon",
+            # Same field names as the Earth entries so web/app.js setLayer()
+            # can read dataset_id/source_url unchanged.
+            "dataset_id": str(entry.get("source_dataset_id", "")),
+            "source_dataset_id": str(entry.get("source_dataset_id", "")),
+            "source_url": str(entry.get("source_url", "")),
+        }
+
     return {
         "criteria": [
             {
@@ -528,6 +572,7 @@ def criteria() -> dict[str, Any]:
             }
             for key in CRITERIA
         ],
+        "lunar": [lunar_entry(key) for key in lunar_keys],
         "weights": normalize_weights_report(ranges=ranges),
     }
 
@@ -1044,11 +1089,17 @@ def analogs() -> dict[str, Any]:
 
 @app.get("/api/predictor")
 def predictor(key: str) -> dict[str, Any]:
-    """One raw predictor grid, base64 float32 (NaN outside candidate land)."""
+    """One raw predictor grid, base64 float32 (NaN outside the valid surface).
+
+    Lunar predictors (``lunar_*``) are served from ``cache/lunar_predictors.zarr``
+    when present; everything else comes from the Earth stack."""
     stack = STATE.arrays
-    if key not in stack:
-        raise HTTPException(status_code=404, detail=f"unknown predictor {key!r}")
-    return {"key": key, **_field(stack[key])}
+    if key in stack:
+        return {"key": key, "surface": "earth", **_field(stack[key])}
+    lunar = STATE.lunar
+    if key in lunar:
+        return {"key": key, "surface": "moon", **_field(lunar[key])}
+    raise HTTPException(status_code=404, detail=f"unknown predictor {key!r}")
 
 
 @app.get("/api/cell")

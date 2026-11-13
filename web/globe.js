@@ -36,21 +36,32 @@ function loadTexture(url) {
   });
 }
 
-/* Deterministic star field (visual only). */
+/* Deterministic star field (visual only). Slight colour and brightness variation. */
 function stars(count = 1800) {
   let seed = 20260928;
   const rand = () => ((seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296);
   const pos = new Float32Array(count * 3);
+  const col = new Float32Array(count * 3);
+  const tint = [
+    [0.62, 0.70, 1.0],   // blue-white
+    [0.85, 0.88, 1.0],   // white
+    [1.0, 0.92, 0.78],   // warm
+    [1.0, 0.80, 0.62],   // orange
+  ];
   for (let i = 0; i < count; i++) {
     const u = rand() * 2 - 1;
     const t = rand() * Math.PI * 2;
     const s = Math.sqrt(1 - u * u);
     const r = 40 + rand() * 20;
     pos.set([r * s * Math.cos(t), r * u, r * s * Math.sin(t)], i * 3);
+    const c = tint[Math.floor(rand() * rand() * tint.length)];
+    const b = 0.35 + rand() * 0.65;
+    col.set([c[0] * b, c[1] * b, c[2] * b], i * 3);
   }
   const geo = new THREE.BufferGeometry();
   geo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
-  return new THREE.Points(geo, new THREE.PointsMaterial({ color: 0x9fb2c8, size: 0.09, sizeAttenuation: true, transparent: true, opacity: 0.8 }));
+  geo.setAttribute("color", new THREE.BufferAttribute(col, 3));
+  return new THREE.Points(geo, new THREE.PointsMaterial({ vertexColors: true, size: 0.09, sizeAttenuation: true, transparent: true, opacity: 0.9 }));
 }
 
 function graticule(radius) {
@@ -67,20 +78,114 @@ function graticule(radius) {
   );
 }
 
-/* The Finder's atmosphere: a fresnel glow around the globe. */
-function atmosphere(radius, color) {
+/* ------------------------------------------------------------ realism */
+
+/* Earth surface: physically based material. Oceans are detected from the colour
+ * texture and given a glossy sun glint and a slightly deeper blue; land stays matte. */
+function earthMaterial(map) {
+  const mat = new THREE.MeshStandardMaterial({ map, roughness: 0.85, metalness: 0 });
+  mat.onBeforeCompile = (shader) => {
+    shader.fragmentShader = shader.fragmentShader.replace(
+      "#include <roughnessmap_fragment>",
+      `#include <roughnessmap_fragment>
+       float ocean = smoothstep(0.03, 0.10, diffuseColor.b - max(diffuseColor.r, diffuseColor.g * 0.9));
+       roughnessFactor = mix(0.88, 0.28, ocean);
+       diffuseColor.rgb = mix(diffuseColor.rgb, diffuseColor.rgb * vec3(0.82, 0.94, 1.12), ocean * 0.6);`,
+    );
+  };
+  mat.customProgramCacheKey = () => "earth-ocean-gloss";
+  return mat;
+}
+
+/* Procedural clouds on a thin shell above the surface (no texture needed). */
+const CLOUD_VERTEX = `
+  varying vec3 vPos; varying vec3 vWorldN;
+  void main() {
+    vPos = normalize(position);
+    vWorldN = normalize(mat3(modelMatrix) * position);
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+  }`;
+
+const CLOUD_FRAGMENT = `
+  uniform vec3 sunDir; uniform float opacity;
+  varying vec3 vPos; varying vec3 vWorldN;
+  float hash(vec3 p) { p = fract(p * 0.3183099 + 0.1); p *= 17.0; return fract(p.x * p.y * p.z * (p.x + p.y + p.z)); }
+  float noise(vec3 x) {
+    vec3 i = floor(x); vec3 f = fract(x); f = f * f * (3.0 - 2.0 * f);
+    return mix(
+      mix(mix(hash(i + vec3(0,0,0)), hash(i + vec3(1,0,0)), f.x), mix(hash(i + vec3(0,1,0)), hash(i + vec3(1,1,0)), f.x), f.y),
+      mix(mix(hash(i + vec3(0,0,1)), hash(i + vec3(1,0,1)), f.x), mix(hash(i + vec3(0,1,1)), hash(i + vec3(1,1,1)), f.x), f.y),
+      f.z);
+  }
+  float fbm(vec3 p) {
+    float v = 0.0; float a = 0.5;
+    for (int i = 0; i < 5; i++) { v += a * noise(p); p = p * 2.03 + vec3(7.1, 3.7, 5.3); a *= 0.5; }
+    return v;
+  }
+  void main() {
+    vec3 p = vPos;
+    vec3 warp = vec3(fbm(p * 2.0), fbm(p * 2.0 + 11.0), fbm(p * 2.0 + 23.0)) - 0.5;
+    // Stretch along longitude a little so clouds form weather-like streaks.
+    float n = fbm(vec3(p.x * 2.6, p.y * 3.4, p.z * 2.6) + warp * 1.1);
+    float lat = abs(p.y);
+    float band = 0.86 + 0.14 * cos((lat - 0.12) * 9.0);   // drier subtropics, wetter mid-latitudes
+    float cover = smoothstep(0.47, 0.76, n * band);
+    float lit = smoothstep(-0.15, 0.55, dot(normalize(vWorldN), sunDir));
+    float shade = 0.72 + 0.28 * smoothstep(0.4, 0.9, n);
+    vec3 col = vec3(1.0) * mix(0.18, 1.0, lit) * shade;
+    gl_FragColor = vec4(col, cover * opacity);
+  }`;
+
+function clouds(radius, sunDir) {
+  const uniforms = { sunDir: { value: sunDir }, opacity: { value: 0.5 } };
+  const mesh = new THREE.Mesh(
+    new THREE.SphereGeometry(radius, 128, 64),
+    new THREE.ShaderMaterial({ uniforms, vertexShader: CLOUD_VERTEX, fragmentShader: CLOUD_FRAGMENT, transparent: true, depthWrite: false }),
+  );
+  mesh.renderOrder = 2;
+  return mesh;
+}
+
+/* The Finder's atmosphere: a fresnel glow around the globe, brighter on the sunlit
+ * side and shifting from deep blue at the edge to pale cyan near the limb. */
+const ATMOS_VERTEX = `varying vec3 vN; varying vec3 vV;
+  void main() { vN = normalize(normalMatrix * normal);
+    vec4 mv = modelViewMatrix * vec4(position, 1.0); vV = normalize(-mv.xyz);
+    gl_Position = projectionMatrix * mv; }`;
+
+function atmosphere(radius, sunView) {
   return new THREE.Mesh(
     new THREE.SphereGeometry(radius, 64, 32),
     new THREE.ShaderMaterial({
-      uniforms: { glow: { value: new THREE.Color(color) } },
-      vertexShader: `varying vec3 vN; varying vec3 vV;
-        void main() { vN = normalize(normalMatrix * normal);
-          vec4 mv = modelViewMatrix * vec4(position, 1.0); vV = normalize(-mv.xyz);
-          gl_Position = projectionMatrix * mv; }`,
-      fragmentShader: `uniform vec3 glow; varying vec3 vN; varying vec3 vV;
-        void main() { float f = pow(1.0 - abs(dot(vN, vV)), 3.0);
-          gl_FragColor = vec4(glow, f * 0.9); }`,
+      uniforms: { sunView: { value: sunView } },
+      vertexShader: ATMOS_VERTEX,
+      fragmentShader: `uniform vec3 sunView; varying vec3 vN; varying vec3 vV;
+        void main() {
+          float f = pow(1.0 - abs(dot(vN, vV)), 3.0);
+          float s = smoothstep(-0.5, 0.6, dot(normalize(vN), sunView));
+          vec3 c = mix(vec3(0.10, 0.32, 1.0), vec3(0.50, 0.78, 1.0), f);
+          gl_FragColor = vec4(c, f * mix(0.45, 1.0, s) * 0.9);
+        }`,
       side: THREE.BackSide, blending: THREE.AdditiveBlending, transparent: true, depthWrite: false,
+    }),
+  );
+}
+
+/* A thin blue haze seen over the limb of the planet itself (air in front of the ground). */
+function limbHaze(radius, sunView) {
+  return new THREE.Mesh(
+    new THREE.SphereGeometry(radius, 96, 48),
+    new THREE.ShaderMaterial({
+      uniforms: { sunView: { value: sunView } },
+      vertexShader: ATMOS_VERTEX,
+      fragmentShader: `uniform vec3 sunView; varying vec3 vN; varying vec3 vV;
+        void main() {
+          float f = pow(1.0 - max(dot(normalize(vN), vV), 0.0), 3.2);
+          float s = smoothstep(-0.4, 0.6, dot(normalize(vN), sunView));
+          vec3 c = vec3(0.35, 0.62, 1.0);
+          gl_FragColor = vec4(c, f * mix(0.25, 0.75, s) * 0.8);
+        }`,
+      side: THREE.FrontSide, blending: THREE.AdditiveBlending, transparent: true, depthWrite: false,
     }),
   );
 }
@@ -115,9 +220,13 @@ export class Globe {
     this.controls.addEventListener("start", () => { this.controls.autoRotate = false; this.flight = null; });
 
     this.scene.add(new THREE.AmbientLight(0xffffff, 1.9));
-    this.sun = new THREE.DirectionalLight(0xffffff, 1.3);
+    this.sun = new THREE.DirectionalLight(0xfff6ea, 1.3);
     this.scene.add(this.sun);
     this.scene.add(stars());
+
+    // Sun direction in world space and in view space (shared with the atmosphere/cloud shaders).
+    this.sunWorld = new THREE.Vector3(0, 0, 1);
+    this.sunView = new THREE.Vector3(0, 0, 1);
 
     this.earth = new THREE.Mesh(new THREE.SphereGeometry(1, 160, 80), new THREE.MeshLambertMaterial({ color: 0x222831 }));
     this.scene.add(this.earth);
@@ -134,7 +243,13 @@ export class Globe {
     );
     this.scene.add(this.overlay);
     this.scene.add(graticule(1.004));
-    this.scene.add(atmosphere(1.12, 0x4f9dff));
+
+    // Realism layers: drifting clouds, a haze over the limb, and the outer glow.
+    this.clouds = clouds(1.012, this.sunWorld);
+    this.scene.add(this.clouds);
+    this.scene.add(limbHaze(1.02, this.sunView));
+    this.scene.add(atmosphere(1.12, this.sunView));
+
     this.space = new SpaceScenery(this.scene, this.camera, { pixelRatio: this.renderer.getPixelRatio(), settle: true });
     this.lastFrame = performance.now();
 
@@ -160,7 +275,7 @@ export class Globe {
     tex.generateMipmaps = true;
     tex.minFilter = THREE.LinearMipmapLinearFilter;
     this.earth.material.dispose();
-    this.earth.material = new THREE.MeshLambertMaterial({ map: tex });
+    this.earth.material = earthMaterial(tex);
     this.hd = hd;
   }
 
@@ -361,6 +476,9 @@ export class Globe {
     this.controls.update();
     // Light from over the viewer's shoulder, fixed relative to the view, so the backdrop Moon and Mars keep the same phase.
     this.sun.position.copy(this.camera.position).add(SUN_OFFSET.clone().applyQuaternion(this.camera.quaternion));
+    // Share the sun direction (world and view space) with the atmosphere and cloud shaders.
+    this.sunWorld.copy(this.sun.position).normalize();
+    this.sunView.copy(this.sunWorld).applyQuaternion(this.camera.quaternion.clone().invert());
     // Detail tiles follow the view; they fade in once loaded.
     const now = performance.now();
     if (now - this.tileCheck > 300) {
@@ -376,6 +494,9 @@ export class Globe {
     // The data overlay fades as you zoom in, so the imagery underneath stays visible.
     const fade = Math.min(1, Math.max(0.45, altitude / 0.9));
     this.overlay.material.opacity = this.overlayOpacity * fade;
+    // Clouds drift slowly and thin out as you zoom in, so the ground and overlay stay readable.
+    if (!REDUCED) this.clouds.rotation.y += dt * 0.004;
+    this.clouds.material.uniforms.opacity.value = 0.5 * Math.min(1, Math.max(0, (altitude - 0.12) / 0.6));
     this.space.update(dt);
     this.renderer.render(this.scene, this.camera);
     this._placeMarkers();

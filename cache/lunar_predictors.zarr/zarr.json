@@ -1,0 +1,34 @@
+{
+  "attributes": {
+    "schema_version": "2.0",
+    "created_utc": "2026-11-13T15:45:15+00:00",
+    "sources": [
+      {
+        "dataset_id": "nasa_lola_sldem2015",
+        "title": "SLDEM2015 lunar elevation model (LOLA + SELENE TC)",
+        "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/sldem2015/global/float_img/sldem2015_128_60s_60n_000_360_float.lbl",
+        "used_for": "lunar_elevation"
+      },
+      {
+        "dataset_id": "nasa_lro_diviner_cylinder_mean_temperature",
+        "title": "Diviner global cylindrical surface-temperature mean",
+        "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_gdr_l3/cylindrical/img/dgdr_st_avg_cyl_128_img.lbl",
+        "used_for": "lunar_temperature"
+      }
+    ],
+    "grid": {
+      "crs": "EPSG:4326",
+      "shape": [
+        360,
+        720
+      ],
+      "cell_degrees": 0.5,
+      "row0_centre_latitude": 89.75,
+      "column0_centre_longitude": -179.75,
+      "ordering": "row-major, north to south then west to east"
+    },
+    "note": "Lunar stack built from PDS3 parcels on the geosciences node. SLDEM covers latitude +/-60 deg; Diviner covers +/-80 deg. Neutron flux is intentionally excluded until a global LEND raster is ingested (LRO LEND reduced records are per-orbit only)."
+  },
+  "zarr_format": 3,
+  "node_type": "group"
+}

@@ -68,6 +68,12 @@ export const LAYER_RAMPS = {
   slope: { ramp: "phthalo" },
   roughness: { ramp: "phthalo" },
   elevation: { ramp: "phthalo" },
+  /* Lunar surfaces (body: "Moon").  Elevation/slope/roughness share the
+     terrain ramp; the Diviner night mean straddles zero so it diverges. */
+  lunar_elevation: { ramp: "phthalo" },
+  lunar_slope: { ramp: "phthalo" },
+  lunar_roughness: { ramp: "phthalo" },
+  lunar_temperature: { ramp: "blueRed", center: 0 },
 };
 
 function sample(stops, t) {

@@ -273,6 +273,58 @@
         27.0704,
         32.9067
       ]
+    },
+    "lunar_elevation": {
+      "label": "Lunar elevation",
+      "unit": "m",
+      "description": "Height above the 1737.4 km reference sphere from the SLDEM2015 model (LOLA + SELENE Terrain Camera), block-averaged to 0.5 degrees. Converted from the parcel's kilometres to metres so it shares the Earth elevation datum convention. Covers +/-60 deg latitude only.",
+      "min": -9000.0,
+      "max": 11000.0,
+      "source_dataset_id": "nasa_lola_sldem2015",
+      "source_url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/sldem2015/global/float_img/sldem2015_128_60s_60n_000_360_float.lbl",
+      "earth_min": -5438.796,
+      "earth_max": 6679.462,
+      "body": "Moon",
+      "earth_quantiles": [-7413.1113, -3440.2087, -2641.9611, -2349.7273, -2071.3156, -1829.8925, -1591.3688, -1364.701, -1136.4115, -905.2983, -647.9572, -360.4694, -57.831, 280.5049, 665.6055, 1118.6821, 1664.923, 2281.7638, 2977.4289, 4072.2944, 9698.2393]
+    },
+    "lunar_slope": {
+      "label": "Lunar slope",
+      "unit": "degrees",
+      "description": "Magnitude of the horizontal gradient of the 0.5-degree lunar elevation field, computed by the same routine as the Earth regional slope. Describes regional tilt over ~55 km, not local slope.",
+      "min": 0.0,
+      "max": 10.0,
+      "source_dataset_id": "computed_from_nasa_lola_sldem2015",
+      "source_url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/sldem2015/global/float_img/sldem2015_128_60s_60n_000_360_float.lbl",
+      "earth_min": 0.015,
+      "earth_max": 4.595,
+      "body": "Moon",
+      "earth_quantiles": [0.0001, 0.0514, 0.0857, 0.1234, 0.1687, 0.2216, 0.2827, 0.3491, 0.4228, 0.5037, 0.5919, 0.6914, 0.8018, 0.9278, 1.0748, 1.2532, 1.4727, 1.76, 2.1804, 2.8449, 8.8889]
+    },
+    "lunar_roughness": {
+      "label": "Lunar roughness",
+      "unit": "m",
+      "description": "RMS height residual of the lunar DEM about a least-squares plane over a 3x3 neighbourhood, in metres. Same definition as the Earth roughness criterion.",
+      "min": 0.0,
+      "max": 2000.0,
+      "source_dataset_id": "computed_from_nasa_lola_sldem2015",
+      "source_url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/sldem2015/global/float_img/sldem2015_128_60s_60n_000_360_float.lbl",
+      "earth_min": 5.666,
+      "earth_max": 869.126,
+      "body": "Moon",
+      "earth_quantiles": [1.066, 15.4907, 27.0516, 42.9313, 65.5021, 90.4618, 115.2059, 139.2827, 163.4939, 187.5156, 212.9301, 239.5434, 267.352, 297.5273, 330.5534, 366.8057, 409.4658, 459.8024, 523.554, 618.5797, 1571.04]
+    },
+    "lunar_temperature": {
+      "label": "Lunar surface temperature (Diviner night mean)",
+      "unit": "K",
+      "description": "Rock-free regolith surface temperature, Diviner channels 6/7/8 binned at 128 px/deg and restricted to local times 1930-0530 (solar incidence > 90 deg), so this is a night-time mean rather than a day/night pair. Values are the product's native scaled values; the label documents a derived range of -62.1 to 101.5 K. Covers +/-80 deg latitude.",
+      "min": -60.0,
+      "max": 110.0,
+      "source_dataset_id": "nasa_lro_diviner_cylinder_mean_surface_temperature",
+      "source_url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_gdr_l3/cylindrical/img/dgdr_st_avg_cyl_128_img.lbl",
+      "earth_min": -21.322,
+      "earth_max": 8.738,
+      "body": "Moon",
+      "earth_quantiles": [-47.1756, -15.3904, -12.0528, -9.49, -7.1257, -4.9341, -3.1718, -1.6726, -0.2838, 0.9604, 2.0489, 2.994, 3.7987, 4.4948, 5.0517, 5.4939, 5.8628, 6.2026, 6.5438, 6.973, 35.6733]
     }
   },
   "weights": {
