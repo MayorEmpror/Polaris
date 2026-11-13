@@ -25,6 +25,14 @@ def main():
             "https://raw.githubusercontent.com/google/fonts/main/ofl/roboto/OFL.txt",
             "roboto-OFL.txt",
         ),
+        (
+            "https://raw.githubusercontent.com/google/fonts/main/ofl/inter/Inter%5Bopsz,wght%5D.ttf",
+            "inter-variable.ttf",
+        ),
+        (
+            "https://raw.githubusercontent.com/google/fonts/main/ofl/inter/OFL.txt",
+            "inter-OFL.txt",
+        ),
     ]
     for url, name in items:
         result = fetch(url, filename=name, raw_dir=cache)
